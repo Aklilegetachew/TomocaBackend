@@ -26,7 +26,7 @@
                         </span>
                         <span class="text">Delete Order</span>
                     </a>
-                    <a href="./PickOrder.php" class="btn btn-back btn-icon-split">
+                    <a href="./PickUpCompleted.php" class="btn btn-back btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-arrow-left"></i>
                         </span>

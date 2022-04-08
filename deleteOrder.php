@@ -13,6 +13,6 @@ if ($ListID) {
     $detail = getUserInputPickupCompleted($ListID);
     deleteRowCompleted($detail);
     // $arryDetail = array();
-    header("Location: PickupCompleted.php");
+    header("Location: PickUpCompleted.php");
 }
 ?>
