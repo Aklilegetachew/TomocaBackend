@@ -73,10 +73,19 @@ if (isset($_POST['create_user'])) {
                                     <input type="text" class="form-control form-control-user" id="" placeholder="Shop Name" name="Shop_name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="" placeholder="User Name" name="User_name">
+                                    <input type="text" class="form-control form-control-user" id="" placeholder="Shop Phone Number" name="PhoneNumber">
                                 </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="" placeholder="Shope Location" name="Shop_Location">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="" placeholder="Lat/Lng" name="GeoLocation">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="" placeholder="Shop Admin Name" name="User_name">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">

@@ -7,7 +7,7 @@
 // $db_name = $_ENV['DB_NAME'];
 $connection = mysqli_connect('localhost', 'versavvymediacom_tomocaUser', '+o,I+4RGg1IS', 'versavvymediacom_tomocaBot');
 
-// $connection = mysqli_connect('localhost', 'root', '', 'tomocainfo');
+//$connection = mysqli_connect('localhost', 'root', '', 'tomocainfo');
 
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
