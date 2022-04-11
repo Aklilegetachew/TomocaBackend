@@ -18,7 +18,6 @@ function SetCompleted($detail)
     $cartStart = $detail['CartStart'];
     $cartEnd = $detail['CartEnd'];
 
-
     $query = "INSERT INTO pickupcompleted(FirstName, LastName, PhonNumber, Total, CartStart, CartEnd, OrderNumber, Shop)
      VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$cartStart', '$cartEnd', '$TransactionID', '$ShopLocation')";
     $res = mysqli_query($connection, $query);
@@ -72,10 +71,6 @@ function getDeliveryOrders($role, $location)
         }
 
         return $Inout;
-
-
-        // $res2 = mysqli_fetch_assoc($res);
-        // return $res2;
     }
 }
 
@@ -107,17 +102,8 @@ function getDeliveryPickedOrders($role, $location)
         }
 
         return $Inout;
-
-
-        // $res2 = mysqli_fetch_assoc($res);
-        // return $res2;
     }
 }
-
-
-
-
-
 
 
 function getPickupOrders($role, $location)
@@ -147,10 +133,6 @@ function getPickupOrders($role, $location)
         }
 
         return $Inout;
-
-
-        // $res2 = mysqli_fetch_assoc($res);
-        // return $res2;
     }
 }
 
@@ -179,10 +161,6 @@ function getDeliveryCompleted($role, $location)
         }
 
         return $Inout;
-
-
-        // $res2 = mysqli_fetch_assoc($res);
-        // return $res2;
     }
 }
 
@@ -214,10 +192,6 @@ function getPickupOrdersCompleted($role, $location)
         }
 
         return $Inout;
-
-
-        // $res2 = mysqli_fetch_assoc($res);
-        // return $res2;
     }
 }
 
@@ -228,9 +202,7 @@ function getUserInput($UseID)
     $res = mysqli_query($connection, $query);
     $res2 = mysqli_fetch_assoc($res);
     $respo = array();
-    // while () {
-    //     $respo[] = $res2;
-    // }
+
     return $res2;
 }
 
@@ -241,11 +213,46 @@ function getUserInputPickupCompleted($UseID)
     $res = mysqli_query($connection, $query);
     $res2 = mysqli_fetch_assoc($res);
     $respo = array();
-    // while () {
-    //     $respo[] = $res2;
-    // }
+
     return $res2;
 }
+
+function getUserInputDelivery($UseID)
+{
+    global $connection;
+    $query = "SELECT * FROM deliveryorders WHERE ID = '$UseID'";
+    $res = mysqli_query($connection, $query);
+    $res2 = mysqli_fetch_assoc($res);
+    $respo = array();
+
+    return $res2;
+}
+
+function getUserInputDeliveryPicked($UseID)
+{
+    global $connection;
+    $query = "SELECT * FROM deliverypickedup WHERE ID = '$UseID'";
+    $res = mysqli_query($connection, $query);
+    $res2 = mysqli_fetch_assoc($res);
+    $respo = array();
+
+    return $res2;
+}
+
+
+function getUserInputDeliveryCompleted($UseID)
+{
+    global $connection;
+    $query = "SELECT * FROM completeddelivery WHERE ID = '$UseID'";
+    $res = mysqli_query($connection, $query);
+    $res2 = mysqli_fetch_assoc($res);
+    $respo = array();
+
+    return $res2;
+}
+
+
+
 
 function GetSelection($ID)
 {
@@ -253,40 +260,6 @@ function GetSelection($ID)
     $query = "SELECT * From products WHERE productId = '$ID'";
     $res = mysqli_query($connection, $query);
     $res2 = mysqli_fetch_assoc($res);
-    // $respo = array();
-    // while () {
-    //     $respo[] = $res2;
-    // }
+
     return $res2;
 }
-
-
-
-// function showdetail($UIDS)
-// {
-//     global $connection;
-//     $detail = getUserInput($UIDS);
-//     $ChartStart = intval($detail['CartStart']);
-//     $ChartEnd = intval($detail['CartEnd']);
-//     $arryDetail = array();
-
-
-//     if ($ChartStart > $ChartEnd) {
-//     } else {
-//         for ($x = $ChartStart; $x <= $ChartEnd; $x++) {
-//             $query = "SELECT * From cart WHERE cartId=$x";;
-//             $res = mysqli_query($connection, $query);
-//             $res = mysqli_fetch_assoc($res);
-//             $arryDetail[] = $res['ProductId'];
-//             return $arryDetail;
-//             //   $selectedItem = GetSelection();
-
-//             //   $Ch_title = $selectedItem['Title'];
-//             //   $Ch_quan = $res['Quantity'];
-//             //   $Ch_prc = $selectedItem['price'];
-//             //   $Ch_amn = $res['Amount'];
-//             //   $Ch_Update = $res['Updated'];
-
-//         }
-//     }
-// }

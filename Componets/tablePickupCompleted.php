@@ -112,16 +112,26 @@ if (isset($_POST['List'])) {
                             </tr>
                         <?php } ?>
                         <?php } elseif ($_SESSION['user_role'] != 'SuperAdmin') {
-                                $response = getPickupOrdersCompleted($_SESSION['user_role'], $_SESSION['location']);
-                                foreach ($response as $row) { ?>
+                                $response = getPickupOrdersCompleted($_SESSION['user_role'], $_SESSION['shopname']);
+                                foreach ($response as $row) {
+                                    $urlStr = base64_encode(urlencode($row['Id']));
+                                    $model = base64_encode(urlencode("pikCom")); ?>
                             <tr>
-                                <td><?php echo $row['Name'] . " " . $row['LastName'];    ?></td>
+                                <td><?php echo $row['FirstName'] . " " . $row['LastName'];    ?></td>
                                 <td><?php echo $row['PhonNumber']; ?></td>
                                 <td><?php echo $row['OrderNumber']; ?></td>
-                                <td><?php echo 0; ?></td>
-                                <td><button class="btn btn-sm" href="#">List</button></td>
+                                <td><?php echo $row['NumProduct']; ?></td>
                                 <td><?php echo $row['Total']; ?> ETB</td>
-                                <td>Completed</td>
+                                <td>pending</td>
+                                <td>
+                                    <a href="CartCompleted.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </span>
+                                        <span class="text">Cart List</span>
+                                    </a>
+                                </td>
+
 
                             </tr>
                         <?php }  ?>

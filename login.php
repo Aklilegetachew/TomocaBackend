@@ -21,6 +21,7 @@ if (isset($_POST['login'])) {
         $_SESSION['username'] = $data['UserName'];
         $_SESSION['shopname'] = $data['Shop_name'];
         $_SESSION['location'] = $data['Location'];
+        $_SESSION['PhoneNum'] = $data['PhoneNumber'];
         $_SESSION['user_role'] = $data['Role'];
         header("Location: Dashboard.php");
       } else {

@@ -107,7 +107,7 @@ if (isset($_POST['List'])) {
                             </tr>
                         <?php } ?>
                         <?php } elseif ($_SESSION['user_role'] != 'SuperAdmin') {
-                                $response = getPickupOrdersCompleted($_SESSION['user_role'], $_SESSION['location']);
+                                $response = getPickupOrdersCompleted($_SESSION['user_role'], $_SESSION['shopname']);
                                 foreach ($response as $row) { ?>
                             <tr>
                                 <td><?php echo $row['Name'] . " " . $row['LastName'];    ?></td>

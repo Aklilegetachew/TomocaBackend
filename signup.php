@@ -8,16 +8,22 @@ if (isset($_POST['create_user'])) {
     $user_name = escape($_POST['User_name']);
     $user_pwd = escape($_POST['User_pass']);
     $Shop_name = escape($_POST['Shop_name']);
-    $user_role = "SuperAdmin";
+    $user_role = "ShopAdmin";
     $user_location = escape($_POST['Shop_Location']);
-    $ShopLong = "Longtuide";
-    $ShopLat = "Lattuide";
+    // 63.97448052880151, 165.51871972906292
+    $ShopLatLong = escape($_POST['GeoLocation']);
+
+    $ShopLocationArray = explode(",", $ShopLatLong);
+    $ShopLong = $ShopLocationArray[1];
+    $ShopLat = $ShopLocationArray[0];
+
+    $ShopPhoneNum = escape($_POST['PhoneNumber']);
 
     // encript password
     $encryptePwd = password_hash($user_pwd, PASSWORD_BCRYPT, ['cost' => 10]);
 
-    $query = "INSERT INTO admin(Shop_name,UserName, Location, Password, Role, Longt, Lat) ";
-    $query .= "VALUES('$Shop_name', '$user_name', '$user_location', '$encryptePwd','$user_role','$ShopLong','$ShopLat') ";
+    $query = "INSERT INTO admin(Shop_name,UserName, Location, Password, Role, Longt, Lat, PhoneNumber) ";
+    $query .= "VALUES('$Shop_name', '$user_name', '$user_location', '$encryptePwd','$user_role','$ShopLong','$ShopLat','$ShopPhoneNum') ";
 
     $user_result = mysqli_query($connection, $query);
 

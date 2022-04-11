@@ -5,12 +5,24 @@
 
 
 $ListID = urldecode(base64_decode($_GET['UD']));
+$ModelID = urldecode(base64_decode($_GET['model']));
 
 
 if ($ListID) {
     global $connection;
     // $ListID = $_GET['UD'];
-    $detail = getUserInput($ListID);
+    if ($ModelID == 'pik') {
+        $detail = getUserInput($ListID);
+    } else if ($ModelID == 'pikCom') {
+        $detail = getUserInputPickupCompleted($ListID);
+    } elseif ($ModelID == 'Del') {
+        $detail = getUserInputDelivery($ListID);
+    } elseif ($ModelID == 'DelPik') {
+        $detail = getUserInputDeliveryPicked($ListID);
+    } elseif ($ModelID == 'DelCom') {
+        $detail = getUserInputDeliveryCompleted($ListID);
+    }
+
 
     $ChartStart = intval($detail['CartStart']);
     $ChartEnd = intval($detail['CartEnd']);
