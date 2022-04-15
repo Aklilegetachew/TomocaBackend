@@ -101,17 +101,15 @@
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
+    let name = <?php echo $_SESSION['shopname']; ?>
+
     var pusher = new Pusher('e5fe60b6bb6d56b8b93e', {
         cluster: 'us2'
     });
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-        let shopAdmin = <?php echo $_SESSION['shopname']; ?>
-        if (data['ShopLocation'] == shopAdmin) {
-            alert(JSON.stringify(data['ShopLocation']));
-        }
-        alert(JSON.stringify(data));
+        alert(data.shop);
     });
 </script>
 
