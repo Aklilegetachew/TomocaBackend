@@ -32,4 +32,8 @@ if (!isset($_SESSION['user_role'])) {
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet" />
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <!-- Pusher  -->
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
 </head>
