@@ -99,7 +99,7 @@
 <!-- Pusher -->
 <script>
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     let name = <?php echo $_SESSION['shopname']; ?>
 
@@ -109,7 +109,7 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-        alert(data.shop);
+        alert(JSON.stringify(data));
     });
 </script>
 
