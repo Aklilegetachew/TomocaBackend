@@ -268,9 +268,9 @@ function GetSelection($ID)
 function addNotification($newOrder, $Msg, $dateOrder)
 {
     if (str_contains($newOrder, "Pickup")) {
-        $LinkUrl = "https:/";
+        $LinkUrl = "https:/p";
     } else {
-        $LinkUrl = "https:/";
+        $LinkUrl = "https:/d";
     }
     global $connection;
     $query = "INSERT INTO notificatione(newOrder, Msg, dateOrder, UrlOrder) VALUES ('$newOrder', '$Msg', '$dateOrder', '$LinkUrl')";

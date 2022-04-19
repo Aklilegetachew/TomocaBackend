@@ -1,6 +1,6 @@
 <?php
 
-// include  './config/db.php';
+
 
 // include  'Sqlfunc.php';
 // $oldArray= array();
@@ -38,13 +38,16 @@
 // echo $notification;
 
 // addNotification($newOrder, $Msg, $dateOrder);
-
+$received = json_decode(file_get_contents('php://input'));
+$name2 = "hello";
+file_put_contents("notfy.txt", $name2 . PHP_EOL . PHP_EOL, FILE_APPEND);
 
 if ($received->action == 'submit') {
 
-    echo json_encode(CancelLitsener($received->name));
+    echo json_encode(CancelLitsener($received->name, $received->orderday, $received->newOrder));
 }
-function cancelLitsener($name)
+function cancelLitsener($name, $orderday, $newOrder)
 {
     file_put_contents("notfy.txt", $name . PHP_EOL . PHP_EOL, FILE_APPEND);
+    addNotification($newOrder, $name, $orderday);
 }
