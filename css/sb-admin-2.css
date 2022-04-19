@@ -10,6 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -11741,4 +11742,16 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+#subHid {
+  all: initial;
+  visibility: hidden !important;
+  display: none;
+}
+#myForm {
+  all: initial;
+  visibility: hidden !important;
+  display: none;
+  
 }

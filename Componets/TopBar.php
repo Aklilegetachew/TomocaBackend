@@ -41,9 +41,10 @@
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span class="badge badge-danger badge-counter" id="notifynum"> <?php echo intval($_SESSION["num"]) + 1; ?></span>
             </a>
             <!-- Dropdown - Alerts -->
+
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">Alerts Center</h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -53,8 +54,17 @@
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">December 12, 2019</div>
-                        <span class="font-weight-bold">new order arrived!</span>
+                        <div class="small text-gray-500" id="notifyday">
+                            <?php echo $_SESSION["orderday"]; ?>
+                        </div>
+                        <span class="font-weight-bold" id="notifyMsg">
+
+                            <?php echo $_SESSION["newOrder"]; ?>
+                        </span>
+                        <div class="text-gray-500" id="notifytype">
+
+                            <?php echo $_SESSION["name"]; ?>
+                        </div>
                     </div>
                 </a>
 

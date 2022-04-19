@@ -96,12 +96,22 @@
 </div>
 
 
-<!-- Pusher -->
-<script>
-    // Enable pusher logging - don't include this in production
-    // Pusher.logToConsole = true;
+<!-- <form name="pushFormz" action="pusherNotification.php" method="POST" id="pushForm"> -->
+<form name="myForm" id="myForm" target="_myFrame" action="Componets/pusherNotification.php" method="POST">
+    <input name="username" type="hidden" id="username" />
+    <input name="Date" type="hidden" id="Date" />
+    <input name="newOrder" type="hidden" id="newOrder" />
+    <input name="num" type="hidden" id="num" value="1" />
+    <input class="btn-hidden" type="submit" name="btnsubmit" value="Submit" id="subHid" />
 
-    let name = <?php echo $_SESSION['shopname']; ?>
+
+</form>
+
+
+<!-- Pusher -->
+<!-- <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
     var pusher = new Pusher('e5fe60b6bb6d56b8b93e', {
         cluster: 'us2'
@@ -111,7 +121,7 @@
     channel.bind('my-event', function(data) {
         alert(JSON.stringify(data));
     });
-</script>
+</script> -->
 
 
 
@@ -138,6 +148,8 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
 </body>
 
 </html>

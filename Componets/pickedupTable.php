@@ -58,7 +58,7 @@
                                 <td>
                                     <a href="Cart.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
-                                        <i class="fas fa-shopping-cart"></i>
+                                            <i class="fas fa-shopping-cart"></i>
                                         </span>
                                         <span class="text">Cart List</span>
                                     </a>
@@ -86,7 +86,7 @@
                                 <td>
                                     <a href="Cart.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
-                                        <i class="fas fa-shopping-cart"></i>
+                                            <i class="fas fa-shopping-cart"></i>
                                         </span>
                                         <span class="text">Cart List</span>
                                     </a>
