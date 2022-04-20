@@ -1,7 +1,38 @@
 <?php
 
+require './config/db.php';
 
 
+function getshopNotification()
+{
+    global $connection;
+    $Inout = array();
+    $loggedShop = "Historical";
+
+    $query = "SELECT * FROM notificatione WHERE ShopLocation = '$loggedShop'";
+    $res = mysqli_query($connection, $query);
+    while ($res2 = mysqli_fetch_assoc($res)) {
+        $Inout[] = $res2;
+    }
+
+    return $Inout;
+}
+
+
+function getshopNotificationAll()
+{
+    global $connection;
+    $Inout = array();
+    $loggedShop = "Historical";
+
+    $query = "SELECT * FROM notificatione ";
+    $res = mysqli_query($connection, $query);
+    while ($res2 = mysqli_fetch_assoc($res)) {
+        $Inout[] = $res2;
+    }
+
+    return $Inout;
+}
 
 
 ?>
@@ -40,33 +71,75 @@
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter" id="notifynum">1</span>
+
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter" id="notifynum"> </span>
+                <?php if ($_SESSION['new_orderNum'] != 0) { ?>
+                <?php } else { ?>
+                    <!-- <span class="badge badge-danger badge-counter" id="notifynum"></span> -->
+
+                <?php } ?>
+
             </a>
             <!-- Dropdown - Alerts -->
 
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" id="noteMode">
                 <h6 class="dropdown-header">Alerts Center</h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-primary">
-                            <i class="fas fa-file-alt text-white"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500" id="notifyday">
-                           
-                        </div>
-                        <span class="font-weight-bold" id="notifyMsg">
 
-                            
-                        </span>
-                        <div class="text-gray-500" id="notifytype">
+                <?php if ($_SESSION['shopname'] == "Central") {
+                    $respo = getshopNotification();
+                    foreach ($respo as $row) {
+                ?>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-primary">
+                                    <i class="fas fa-file-alt text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="small text-gray-500" id="notifyday">
+                                    <?php echo  $row["dateOrder"]; ?>
+                                </div>
+                                <span class="font-weight-bold" id="notifyMsg">
+                                    <?php echo  $row["newOrder"]; ?>
 
-                          
-                        </div>
-                    </div>
-                </a>
+                                </span>
+                                <div class="text-gray-500" id="notifytype">
+
+                                    <?php echo  $row["ShopLocation"]; ?>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                    <?php } else {
+                    $respo = getshopNotification();
+                    foreach ($respo as $row) {
+                    ?>
+
+
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-primary">
+                                    <i class="fas fa-bell fa-fw text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="small text-gray-500" id="notifyday">
+                                    <?php echo  $row["dateOrder"]; ?>
+                                </div>
+                                <span class="font-weight-bold" id="notifyMsg">
+
+                                    <?php echo  $row["newOrder"]; ?>
+                                </span>
+                                <div class="text-gray-500" id="notifytype">
+
+                                    <?php echo  $row["CustomerName"]; ?>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+
 
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
             </div>

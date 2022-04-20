@@ -23,6 +23,8 @@ if (isset($_POST['login'])) {
         $_SESSION['location'] = $data['Location'];
         $_SESSION['PhoneNum'] = $data['PhoneNumber'];
         $_SESSION['user_role'] = $data['Role'];
+        $_SESSION['new_order'] = false;
+
         header("Location: Dashboard.php");
       } else {
         header("Location: index.php");

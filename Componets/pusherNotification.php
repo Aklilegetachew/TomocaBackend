@@ -1,8 +1,22 @@
 <?php
 
 
+include '../config/db.php';
+// include 'Sqlfunc.php';
 
-// include  'Sqlfunc.php';
+function addNotification($newOrder, $CustomerName, $dateOrder, $shopName)
+{
+    if (str_contains($newOrder, "Pickup")) {
+        $LinkUrl = "https:/p";
+    } else {
+        $LinkUrl = "https:/d";
+    }
+    global $connection;
+    $query = "INSERT INTO notificatione(newOrder, CustomerName, dateOrder, UrlOrder, ShopLocation) VALUES ('$newOrder', '$CustomerName', '$dateOrder', '$LinkUrl', '$shopName')";
+    $res = mysqli_query($connection, $query);
+    return $res;
+}
+
 // $oldArray= array();
 // $Pushedarray = array();
 // //  array_push();
@@ -44,10 +58,13 @@ file_put_contents("notfy.txt", $name2 . PHP_EOL . PHP_EOL, FILE_APPEND);
 
 if ($received->action == 'submit') {
 
-    echo json_encode(CancelLitsener($received->name, $received->orderday, $received->newOrder));
+    echo json_encode(CancelLitsener($received->name, $received->Orderday, $received->NewOrder, $received->shopName));
 }
-function cancelLitsener($name, $orderday, $newOrder)
+function cancelLitsener($name, $Orderday, $NewOrder, $shopName)
 {
+    $_SESSION['new_order'] = true;
+    $_SESSION['new_orderNum'] += 1;
     file_put_contents("notfy.txt", $name . PHP_EOL . PHP_EOL, FILE_APPEND);
-    addNotification($newOrder, $name, $orderday);
+    $r =  addNotification($NewOrder, $name, $Orderday, $shopName);
+    return $r;
 }
