@@ -74,7 +74,7 @@ function getshopNotificationAll()
                 <span class="badge badge-danger badge-counter" id="notifynum">1</span>
 
                 <!-- Counter - Alerts -->
-                <?php if ($_SESSION['new_orderNum'] != 0) { ?>
+                <?php if (1 != 0) { ?>
                 <?php } else { ?>
                     <!-- <span class="badge badge-danger badge-counter" id="notifynum"></span> -->
 
