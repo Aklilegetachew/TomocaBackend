@@ -44,9 +44,8 @@ $CustomerName = $_POST["name"];
 
 
 if ($_SESSION['shopname'] == "Central") {
-    $respo = getshopNotification();
-    foreach ($respo as $row) {
-        echo   '<a class="dropdown-item d-flex align-items-center" href="#">
+
+    echo   '<a class="dropdown-item d-flex align-items-center" href="#">
     <div class="mr-3">
         <div class="icon-circle bg-primary">
             <i class="fas fa-bell fa-fw text-white"></i>
@@ -54,23 +53,21 @@ if ($_SESSION['shopname'] == "Central") {
     </div>
     <div>
         <div class="small text-gray-500" id="notifyday">';
-        echo  $dateOrder;
-        echo ' </div>
+    echo  $dateOrder;
+    echo ' </div>
         <span class="font-weight-bold" id="notifyMsg">';
 
-        echo  $newOrder;
-        echo '</span>
+    echo  $newOrder;
+    echo '</span>
         <div class="text-gray-500" id="notifytype">';
 
-        echo  $ShopName;
-        echo '</div>
+    echo  $ShopName;
+    echo '</div>
     </div>
 </a>';
-    }
 } else {
-    $respo = getshopNotification();
-    foreach ($respo as $row) {
-        echo   '<a class="dropdown-item d-flex align-items-center" href="#">
+
+    echo   '<a class="dropdown-item d-flex align-items-center" href="#">
     <div class="mr-3">
         <div class="icon-circle bg-primary">
             <i class="fas fa-bell fa-fw text-white"></i>
@@ -78,17 +75,16 @@ if ($_SESSION['shopname'] == "Central") {
     </div>
     <div>
         <div class="small text-gray-500" id="notifyday">';
-        echo  $dateOrder;
-        echo ' </div>
+    echo  $dateOrder;
+    echo ' </div>
         <span class="font-weight-bold" id="notifyMsg">';
 
-        echo  $newOrder;
-        echo '</span>
+    echo  $newOrder;
+    echo '</span>
         <div class="text-gray-500" id="notifytype">';
 
-        echo  $CustomerName;
-        echo '</div>
+    echo  $CustomerName;
+    echo '</div>
     </div>
 </a>';
-    }
 }

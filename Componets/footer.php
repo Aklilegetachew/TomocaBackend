@@ -129,9 +129,9 @@
         var name = data.name;
         var orderday = data.Orderdate;
         var loggedShop = shopLoc;
-        let shopLocation = SelectedShop.substring(3);
+        let shopLocation = SelectedShop;
 
-        if (loggedShop.includes(shopLocation)) {
+        if (loggedShop == shopLocation) {
 
 
             await axios.post('Componets/pusherNotification.php', {
@@ -141,7 +141,7 @@
                 NewOrder: newOrder,
                 shopName: shopLocation
             }).then(res => {
-
+                console.log("then");
                 // window.location.reload();
                 $('#noteMode').load("Componets/notifAlert.php", {
                     name: name,
@@ -151,6 +151,13 @@
 
                 })
 
+
+            }).then(res => {
+                console.log("then2");
+                // window.location.reload();
+
+
+                $('#notifynum').load("Componets/notifAlertpin.php")
             })
 
             // document.forms["myForm"].submit();

@@ -71,7 +71,7 @@ function getshopNotificationAll()
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <span class="badge badge-danger badge-counter" id="notifynum">1</span>
+                <span class="badge badge-danger badge-counter" id="notifynum"></span>
 
                 <!-- Counter - Alerts -->
                 <?php if (1 != 0) { ?>
@@ -83,13 +83,13 @@ function getshopNotificationAll()
             </a>
             <!-- Dropdown - Alerts -->
 
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" id="noteMode">
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">Alerts Center</h6>
 
                 <?php if ($_SESSION['shopname'] == "Central") {
                     $respo = getshopNotification();
                     foreach ($respo as $row) {
-                ?>
+                ?> <div id="noteMode"> </div>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="mr-3">
                                 <div class="icon-circle bg-primary">
@@ -110,13 +110,14 @@ function getshopNotificationAll()
                                 </div>
                             </div>
                         </a>
+
                     <?php } ?>
                     <?php } else {
                     $respo = getshopNotification();
                     foreach ($respo as $row) {
                     ?>
 
-
+                        <div id="noteMode"></div>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="mr-3">
                                 <div class="icon-circle bg-primary">
@@ -137,6 +138,7 @@ function getshopNotificationAll()
                                 </div>
                             </div>
                         </a>
+
                     <?php } ?>
                 <?php } ?>
 
