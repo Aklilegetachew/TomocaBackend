@@ -131,6 +131,7 @@
         var loggedShop = shopLoc;
         let shopLocation = SelectedShop;
 
+
         if (loggedShop == shopLocation) {
 
 
@@ -154,76 +155,22 @@
 
             }).then(res => {
                 console.log("then2");
-                // window.location.reload();
-
-
                 $('#notifynum').load("Componets/notifAlertpin.php")
             })
 
-            // document.forms["myForm"].submit();
-            // console.log("hello");
-            // $messageArray = array();
-            // array_push($messageArray, {})
 
-            // $_SESSION["notification"] = $messageArray?>
+        }
 
-            // $ch = curl_init();
+        if (loggedShop == "Central") {
+            $('#noteMode').load("Componets/notifAlert.php", {
+                name: name,
+                Orderday: orderday,
+                NewOrder: newOrder,
+                shopName: shopLocation
 
-            // curl_setopt($ch, CURLOPT_URL, "https://private-anon-8b5436ce56-tookanapi.apiary-mock.com/v2/create_task");
-            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            // curl_setopt($ch, CURLOPT_HEADER, FALSE);
-            // curl_setopt($ch, CURLOPT_POST, TRUE);
-            // curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-            //   "newOrde": "newOrder",
-            //   "SelectedShop": "SelectedShop",
-            //    "name": "name",
-            //      "orderday": "orderday",
-            //      "num": 0
+            })
+            $('#notifynum').load("Componets/notifAlertpin.php")
 
-            // }");
-
-
-
-
-
-
-            // var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-            // if (existingEntries == null) existingEntries = [];
-            // var entry = {
-            //   "newOrde": newOrder,
-            //   "SelectedShop": SelectedShop,
-            //   "name": name,
-            //   "orderday": orderday,
-            //   "num": 0
-            // };
-            // localStorage.setItem("entry", JSON.stringify(entry));
-            // existingEntries.push(entry);
-
-            // localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-
-            // for (var i = 0; i < localStorage.length; i++) {
-            //   $('body').append(localStorage.getItem(localStorage.key(i)));
-
-            //   document.getElementById("notifyMsg").append(localStorage.getItem(localStorage.key("newOrder")));
-            //   document.getElementById("notifyday").append(localStorage.getItem(localStorage.key("orderday")));
-            //   document.getElementById("notifytype").append(localStorage.getItem(localStorage.key("name")));
-            //   document.getElementById("notifynum").append(localStorage.getItem(localStorage.key(i)));
-            // }
-
-            // document.getElementById("notifyMsg").innerHTML = localStorage.getItem("newOrder");
-            // document.getElementById("notifyday").innerHTML = localStorage.getItem("orderday");
-            // document.getElementById("notifytype").innerHTML = localStorage.getItem("name");
-            // document.getElementById("notifynum").innerHTML = localStorage.getItem("num") + 1;
-
-            // field.addEventListener("change", function() {
-            // // And save the results into the session storage object
-            // document.getElementById("notifyMsg").innerHTML = sessionStorage.getItem("newOrder");
-            // document.getElementById("notifyday").innerHTML = sessionStorage.getItem("orderday");
-            // document.getElementById("notifytype").innerHTML = sessionStorage.getItem("name");
-            // document.getElementById("notifynum").innerHTML = sessionStorage.getItem("num") + 1;
-            // });
-            // sessionStorage.setItem("lastname", "Smith");
-            // window.location.reload();
         }
     });
 </script>
