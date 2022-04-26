@@ -1,5 +1,17 @@
 <?php
 
+if ($_SESSION['user_role'] !== "Centeral") {
+    header("Location: index.php");
+}
+
+
+
+?>
+
+
+
+<?php
+
 require_once 'config/db.php';
 include  './config/functions.php';
 

@@ -1,3 +1,14 @@
+<?php
+
+if ($_SESSION['user_role'] !== "Centeral") {
+    header("Location: index.php");
+}
+
+
+
+?>
+
+
 <?php include 'Componets/HeaderAdmin.php'; ?>
 
 <body id="page-top">

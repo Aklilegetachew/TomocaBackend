@@ -6,7 +6,7 @@
 <?php
 
 if (!isset($_SESSION['user_role'])) {
-  header("Location: ./index.php");
+  header("Location: index.php");
 }
 
 
@@ -37,5 +37,5 @@ if (!isset($_SESSION['user_role'])) {
 
   <!-- Pusher  -->
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-  
+
 </head>

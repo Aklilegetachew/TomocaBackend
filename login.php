@@ -31,9 +31,12 @@ if (isset($_POST['login'])) {
       }
     }
   } else {
-    echo "not";
+    header("Location: index.php");
   }
 }
+
+session_write_close();
+
 
 
 
