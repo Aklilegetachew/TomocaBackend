@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['user_role'] !== "Centeral") {
+if (!isset($_SESSION['user_role'])) {
     header("Location: index.php");
 }
 
