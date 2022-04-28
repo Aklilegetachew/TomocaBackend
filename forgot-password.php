@@ -44,7 +44,7 @@
                       <input name="email" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." />
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block" name="Reset_user">
-                      Add shop
+                      Submit
                     </button>
                   </form>
                   <hr />
