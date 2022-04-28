@@ -24,7 +24,7 @@ function SendEmailReset($userName, $email, $token)
 
         //Recipients
         $mail->setFrom('aklilegetachew@gmail.com', 'Aklile G');
-        $mail->addAddress('aklilegetachew@gmail.com', 'Aklile G');     //Add a recipient
+        $mail->addAddress($email, $userName);     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -38,7 +38,7 @@ function SendEmailReset($userName, $email, $token)
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'TOMOCA Admin Portal';
         $mail->Body    = 'Hello ' . $userName . '</b> You are seeing this up on your request to reset password. to reset your password please press the link: 
-        <a href='http://localhost/BackAdmin/ChangePassword.php?tokan=$token'> Click here  </a> </b>  ';
+        <a href="http://localhost/BackAdmin/ChangePassword.php?tokan=' . $token . '&email=' . $email . '"> Click here  </a> </b> ';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients ' . $token;
 
         $mail->send();
@@ -65,7 +65,7 @@ if (isset($_POST['Reset_user'])) {
 
         $query2 = "UPDATE admin SET V_token= '$token' WHERE email= '$email' LIMIT 1";
         $Res = mysqli_query($connection, $query2);
-        
+
         if ($Res) {
             SendEmailReset($userName, $email, $token);
         } else {

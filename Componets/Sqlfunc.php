@@ -112,7 +112,7 @@ function getPickupOrders($role, $location)
     $Inout = array();
 
     if ($role == "SuperAdmin") {
-        $query = "SELECT * From pickuppayed WHERE Pickstatus = 'pending'";
+        $query = "SELECT * From pickuppayed ";
         $res = mysqli_query($connection, $query);
         $respon = mysqli_num_rows($res);
 
@@ -263,5 +263,3 @@ function GetSelection($ID)
 
     return $res2;
 }
-
-
