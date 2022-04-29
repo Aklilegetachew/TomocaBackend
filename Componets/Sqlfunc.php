@@ -43,6 +43,16 @@ function deleteRowCompleted($detail)
     return $res;
 }
 
+function deleteRowCompletedDel($detail)
+{
+    global $connection;
+    $UserID = $detail['ID'];
+
+    $query = "DELETE FROM completeddelivery WHERE ID= $UserID";;
+    $res = mysqli_query($connection, $query);
+    return $res;
+}
+
 
 function getDeliveryOrders($role, $location)
 {
@@ -61,7 +71,7 @@ function getDeliveryOrders($role, $location)
 
         return $Inout;
     } else {
-        $query = "SELECT * From deliveryorders WHERE PickupLocation = '$location'";
+        $query = "SELECT * From deliveryorders WHERE ShopLocation = '$location'";
         $res = mysqli_query($connection, $query);
         $respon = mysqli_num_rows($res);
 
@@ -262,4 +272,75 @@ function GetSelection($ID)
     $res2 = mysqli_fetch_assoc($res);
 
     return $res2;
+}
+
+
+
+// delivery
+
+function SetCompletedDel($detail)
+{
+    global $connection;
+    $UserID = $detail['UserID'];
+    $FirstName = $detail['FirstName'];
+    $LastName = $detail['LastName'];
+    $CartStart = $detail['CartStart'];
+    $CartEnd = $detail['CartEnd'];
+    $TotalAmount = $detail['Total'];
+    $NumProduct = $detail['Quantity'];
+    $TransactionID = $detail['OrderNumber'];
+    $PhoneNumber = $detail['PhoneNumber'];
+    $ShopLocation = $detail['ShopLocation'];
+    $pickupurl = $detail['Pickupurl'];
+    $Deliveryurl = $detail['DeliveryUrl'];
+
+
+    $query = "INSERT INTO deliverypickedup(FirstName, LastName, PhoneNumber, Total, CartStart, CartEnd, OrderNumber, Pickupurl, Quantity, DeliveryUrl, ShopLocation)
+     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$CartStart', '$CartEnd', '$TransactionID', '$pickupurl', '$NumProduct', '$Deliveryurl', '$ShopLocation')";
+    $res = mysqli_query($connection, $query);
+}
+
+
+function deleteRowDel($detail)
+{
+    global $connection;
+    $UserID = $detail['ID'];
+
+    $query = "DELETE FROM deliveryorders WHERE ID= $UserID";;
+    $res = mysqli_query($connection, $query);
+    return $res;
+}
+
+
+function SetCompletedDelPic($detail)
+{
+    global $connection;
+    $UserID = $detail['UserID'];
+    $FirstName = $detail['FirstName'];
+    $LastName = $detail['LastName'];
+    $CartStart = $detail['CartStart'];
+    $CartEnd = $detail['CartEnd'];
+    $TotalAmount = $detail['Total'];
+    $NumProduct = $detail['Quantity'];
+    $TransactionID = $detail['OrderNumber'];
+    $PhoneNumber = $detail['PhoneNumber'];
+    $ShopLocation = $detail['ShopLocation'];
+    $pickupurl = $detail['Pickupurl'];
+    $Deliveryurl = $detail['DeliveryUrl'];
+
+
+    $query = "INSERT INTO completeddelivery(FirstName, LastName, PhoneNumber, Total, CartStart, CartEnd, OrderNumber, Pickupurl, Quantity, DeliveryUrl, ShopLocation)
+     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$CartStart', '$CartEnd', '$TransactionID', '$pickupurl', '$NumProduct', '$Deliveryurl', '$ShopLocation')";
+    $res = mysqli_query($connection, $query);
+}
+
+
+function deleteRowDelPic($detail)
+{
+    global $connection;
+    $UserID = $detail['ID'];
+
+    $query = "DELETE FROM deliverypickedup WHERE ID= $UserID";;
+    $res = mysqli_query($connection, $query);
+    return $res;
 }

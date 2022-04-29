@@ -91,7 +91,10 @@ if (isset($_POST['List'])) {
                         <?php
                                 $response = getPickupOrdersCompleted($_SESSION['user_role'], $_SESSION['location']);
 
-                                foreach ($response as $row) { ?>
+                                foreach ($response as $row) {
+
+                                    $urlStr = base64_encode(urlencode($row['Id']));
+                                    $model = base64_encode(urlencode("pikCom")); ?>
                             <tr>
                                 <form class="user" action="./CartViewer.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="ID" value=<?php echo $row['Id']; ?> />
@@ -99,7 +102,7 @@ if (isset($_POST['List'])) {
                                     <td><?php echo $row['PhonNumber']; ?></td>
                                     <td><?php echo $row['OrderNumber']; ?></td>
                                     <td><?php echo 0; ?></td>
-                                    <td> <a href="CartCompleted.php?UD=<?php echo $row['Id']; ?>" class="btn btn-success btn-icon-split">
+                                    <td> <a href="CartCompleted.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-shopping-cart"></i>
                                             </span>

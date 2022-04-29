@@ -63,7 +63,7 @@
                                         <span class="text">Cart List</span>
                                     </a>
                                 </td>
-                                <td><?php echo $row['PickupLocation']; ?></td>
+                                <td><?php echo $row['ShopLocation']; ?></td>
 
 
                                 <?php $i++; ?>

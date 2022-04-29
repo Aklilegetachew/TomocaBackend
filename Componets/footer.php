@@ -64,7 +64,7 @@
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
                     Cancel
                 </button>
-                <a class="btn btn-primary" href="function.php?UD=<?php echo $ListID; ?>">Complete</a>
+                <a class="btn btn-primary" href="function.php?UD=<?php echo $_GET['UD']; ?>&model=<?php echo $_GET['model']; ?>">Complete</a>
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
                     Cancel
                 </button>
-                <a class="btn btn-danger" href="deleteOrder.php?UD=<?php echo $ListID; ?>">Delete</a>
+                <a class="btn btn-danger" href="deleteOrder.php?UD=<?php echo $_GET['UD']; ?>&model=<?php echo $_GET['model']; ?>">Delete</a>
             </div>
         </div>
     </div>

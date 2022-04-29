@@ -5,18 +5,36 @@
 <?php
 
 
-$ListID = $_GET['UD'];
 
+
+
+
+$ListID = urldecode(base64_decode($_GET['UD']));
+$ModelID = urldecode(base64_decode($_GET['model']));
 
 
 if ($ListID) {
-    echo "hello";
-    // global $connection;
-    // $ListID = $_GET['UD'];
-    $detail = getUserInput($ListID);
-    SetCompleted($detail);
-    deleteRow($detail);
-    // $arryDetail = array();
-    header("Location: PickOrder.php");
+    global $connection;
+
+    if ($ModelID == 'pik') {
+        $detail = getUserInput($ListID);
+        SetCompleted($detail);
+        deleteRow($detail);
+        header("Location: PickOrder.php");
+    } else if ($ModelID == 'pikCom') {
+        $detail = getUserInputPickupCompleted($ListID);
+    } elseif ($ModelID == 'Del') {
+        $detail = getUserInputDelivery($ListID);
+        SetCompletedDel($detail);
+        deleteRowDel($detail);
+        header("Location: DeliveryOrder.php");
+    } elseif ($ModelID == 'DelPik') {
+        $detail = getUserInputDeliveryPicked($ListID);
+        SetCompletedDelPic($detail);
+        deleteRowDelPic($detail);
+        header("Location: PickedUp.php");
+    } elseif ($ModelID == 'DelCom') {
+        $detail = getUserInputDeliveryCompleted($ListID);
+    }
 }
 ?>
