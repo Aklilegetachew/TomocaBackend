@@ -22,18 +22,7 @@ if (isset($_POST['List'])) {
     echo $ListID;
 }
 
-
-
-
-
 ?>
-
-
-
-
-
-
-
 
 <?php include  './config/db.php'; ?>
 <!--  -->
@@ -85,7 +74,7 @@ if (isset($_POST['List'])) {
                                     <td><?php echo $row['FirstName'] . " " . $row['LastName']; ?></td>
                                     <td><?php echo $row['PhonNumber']; ?></td>
                                     <td><?php echo $row['OrderNumber']; ?></td>
-                                    <td><?php echo 0; ?></td>
+                                    <td><?php echo $row['NumProduct']; ?></td>
                                     <td> <a href="CartCompleted.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-shopping-cart"></i>

@@ -15,11 +15,11 @@ function SetCompleted($detail)
     $TransactionID = $detail['TransactionID'];
     $PhoneNumber = $detail['PhoneNumber'];
     $ShopLocation = $detail['ShopLocation'];
-    $cartStart = $detail['CartStart'];
-    $cartEnd = $detail['CartEnd'];
+    // $cartStart = $detail['CartStart'];
+    // $cartEnd = $detail['CartEnd'];
 
     $query = "INSERT INTO pickupcompleted(FirstName, LastName, PhonNumber, Total, CartStart, CartEnd, OrderNumber, Shop, NumProduct)
-     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$cartStart', '$cartEnd', '$TransactionID', '$ShopLocation', '$NumProduct')";
+     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$CartStart', '$CartEnd', '$TransactionID', '$ShopLocation', '$NumProduct')";
     $res = mysqli_query($connection, $query);
 }
 
