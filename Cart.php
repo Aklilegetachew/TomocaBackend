@@ -19,8 +19,11 @@
 
                 <!-- Content Wrapper -->
                 <div class="container-fluid">
-                    <?php include 'Componets/CartViewer.php'; ?>
-                    <a href="function.php?UD=<?php echo $ListID; ?>&model=" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#CompleteModal">
+                    <?php include 'Componets/CartViewer.php';
+                    // $ListID = urldecode(base64_decode($_GET['UD']));
+
+                    ?>
+                    <a href="function.php?UD=<?php echo $_GET['UD']; ?>&model=<?php echo $_GET['model']; ?>" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#CompleteModal">
                         <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
                         </span>

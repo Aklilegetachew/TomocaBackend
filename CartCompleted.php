@@ -20,7 +20,7 @@
                 <!-- Content Wrapper -->
                 <div class="container-fluid">
                     <?php include 'Componets/CartViewerCompleted.php'; ?>
-                    <a href="function.php?UD=<?php echo $ListID; ?>" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#DeleteModal">
+                    <a href="function.php?UD=<?php echo $_GET['UD']; ?>&model=<?php echo $_GET['model']; ?>" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#DeleteModal">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash-alt"></i>
                         </span>
@@ -39,8 +39,8 @@
 
 
 
+            </div>
 
+            <!-- End of Main Content -->
 
-                <!-- End of Main Content -->
-
-                <?php include 'Componets/footer.php'; ?>
+            <?php include 'Componets/footer.php'; ?>
