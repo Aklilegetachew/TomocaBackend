@@ -18,24 +18,8 @@ if (isset($_POST['List'])) {
     $Ch_amn = $res['Amount'];
     $Ch_Update = $res['Updated'];
 
-    // $user_pwd = escape($_POST['User_pass']);
-    // $Shop_name = escape($_POST['Shop_name']);
-    // $user_role = "SuperAdmin";
-    // $user_location = escape($_POST['Shop_Location']);
-    // $ShopLong = "Longtuide";
-    // $ShopLat = "Lattuide";
 
-    // // encript password
-    // $encryptePwd = password_hash($user_pwd, PASSWORD_BCRYPT, ['cost' => 10]);
-
-    // $query = "INSERT INTO admin(Shop_name,UserName, Location, Password, Role, Longt, Lat) ";
-    // $query .= "VALUES('$Shop_name', '$user_name', '$user_location', '$encryptePwd','$user_role','$ShopLong','$ShopLat') ";
-
-    // $user_result = mysqli_query($connection, $query);
-
-    // confirm($user_result);
     echo $ListID;
-    // header("Location: ./users.php");
 }
 
 
