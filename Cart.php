@@ -20,7 +20,7 @@
                 <!-- Content Wrapper -->
                 <div class="container-fluid">
                     <?php include 'Componets/CartViewer.php'; ?>
-                    <a href="function.php?UD=<?php echo $ListID; ?>" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#CompleteModal">
+                    <a href="function.php?UD=<?php echo $ListID; ?>&model=" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#CompleteModal">
                         <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
                         </span>

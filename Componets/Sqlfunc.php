@@ -18,8 +18,8 @@ function SetCompleted($detail)
     $cartStart = $detail['CartStart'];
     $cartEnd = $detail['CartEnd'];
 
-    $query = "INSERT INTO pickupcompleted(FirstName, LastName, PhonNumber, Total, CartStart, CartEnd, OrderNumber, Shop)
-     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$cartStart', '$cartEnd', '$TransactionID', '$ShopLocation')";
+    $query = "INSERT INTO pickupcompleted(FirstName, LastName, PhonNumber, Total, CartStart, CartEnd, OrderNumber, Shop, NumProduct)
+     VALUES ('$FirstName', '$LastName', '$PhoneNumber', '$TotalAmount', '$cartStart', '$cartEnd', '$TransactionID', '$ShopLocation', '$NumProduct')";
     $res = mysqli_query($connection, $query);
 }
 
