@@ -102,7 +102,7 @@ function getDeliveryPickedOrders($role, $location)
 
         return $Inout;
     } else {
-        $query = "SELECT * From deliverypickedup WHERE PickupLocation = '$location'";
+        $query = "SELECT * From deliverypickedup WHERE ShopLocation = '$location'";
         $res = mysqli_query($connection, $query);
         $respon = mysqli_num_rows($res);
 
@@ -161,7 +161,7 @@ function getDeliveryCompleted($role, $location)
 
         return $Inout;
     } else {
-        $query = "SELECT * From completeddelivery WHERE PickupLocation = '$location'";
+        $query = "SELECT * From completeddelivery WHERE ShopLocation = '$location'";
         $res = mysqli_query($connection, $query);
         $respon = mysqli_num_rows($res);
 
