@@ -6,10 +6,10 @@ include '../config/db.php';
 
 function addNotification($newOrder, $CustomerName, $dateOrder, $shopName)
 {
-    if (str_contains($newOrder, "Pickup")) {
-        $LinkUrl = "https:/p";
+    if (str_contains($newOrder, "pickup")) {
+        $LinkUrl = "./PickOrder.php";
     } else {
-        $LinkUrl = "https:/d";
+        $LinkUrl = "./DeliveryOrder.php";
     }
     global $connection;
     $query = "INSERT INTO notificatione(newOrder, CustomerName, dateOrder, UrlOrder, ShopLocation) VALUES ('$newOrder', '$CustomerName', '$dateOrder', '$LinkUrl', '$shopName')";

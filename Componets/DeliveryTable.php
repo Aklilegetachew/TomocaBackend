@@ -53,10 +53,10 @@
                                 <td><?php echo $row['OrderNumber']; ?></td>
                                 <td><?php echo $row['Quantity']; ?></td>
                                 <td><?php echo $row['Total']; ?> ETB</td>
-                                <td><?php echo $row['DeliveryUrl']; ?></td>
+                                <td><a href=<?php echo $row['DeliveryUrl']; ?>> click here </a></td>
                                 <td>pending</td>
                                 <td>
-                                    <a href="Cart.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
+                                    <a href="CartPicked.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-shopping-cart"></i>
                                         </span>
@@ -81,10 +81,10 @@
                                 <td><?php echo $row['OrderNumber']; ?></td>
                                 <td><?php echo $row['Quantity']; ?></td>
                                 <td><?php echo $row['Total']; ?> ETB</td>
-                                <td><?php echo $row['DeliveryUrl']; ?></td>
+                                <td><a href=<?php echo $row['DeliveryUrl']; ?>> click here </a> </td>
                                 <td>pending</td>
                                 <td>
-                                    <a href="Cart.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model ?>" class="btn btn-success btn-icon-split">
+                                    <a href="CartPicked.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-shopping-cart"></i>
                                         </span>

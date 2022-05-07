@@ -36,16 +36,24 @@ function getshopNotificationAll()
 
 
 
-
+$locationUrl = '#';
 $ShopName = $_POST["shopName"];
 $dateOrder = $_POST["Orderday"];
 $newOrder = $_POST["NewOrder"];
 $CustomerName = $_POST["name"];
 
+if ($newOrder == "New pickup order arrived") {
+
+    $locationUrl = "./PickOrder.php";
+} else {
+    $locationUrl = "./DeliveryOrder.php";
+}
+
+
 
 if ($_SESSION['shopname'] == "Central") {
 
-    echo   '<a class="dropdown-item d-flex align-items-center" href="#">
+    echo   '<a class="dropdown-item d-flex align-items-center" href="' . $locationUrl . '">
     <div class="mr-3">
         <div class="icon-circle bg-primary">
             <i class="fas fa-bell fa-fw text-white"></i>
@@ -67,7 +75,7 @@ if ($_SESSION['shopname'] == "Central") {
 </a>';
 } else {
 
-    echo   '<a class="dropdown-item d-flex align-items-center" href="#">
+    echo   '<a class="dropdown-item d-flex align-items-center" href="' . $locationUrl . '">
     <div class="mr-3">
         <div class="icon-circle bg-primary">
             <i class="fas fa-bell fa-fw text-white"></i>

@@ -70,6 +70,30 @@
     </div>
 </div>
 
+<!-- Picked Order -->
+
+<div class="modal fade" id="PickModal" tabindex="-1" role="dialog" aria-labelledby="SucessesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example2ModalLabel">Picked order?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure the order is picked
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                    No
+                </button>
+                <a class="btn btn-primary" href="function.php?UD=<?php echo $_GET['UD']; ?>&model=<?php echo $_GET['model']; ?>">yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!--   DeleteModal-->
 
@@ -131,34 +155,27 @@
         var loggedShop = shopLoc;
         let shopLocation = SelectedShop;
 
+        axios.post('Componets/pusherNotification.php', {
+            action: 'submit',
+            name: name,
+            Orderday: orderday,
+            NewOrder: newOrder,
+            shopName: shopLocation
+        })
 
         if (loggedShop == shopLocation) {
-
-
-            await axios.post('Componets/pusherNotification.php', {
-                action: 'submit',
+            console.log("then");
+            // window.location.reload();
+            $('#noteMode').load("Componets/notifAlert.php", {
                 name: name,
                 Orderday: orderday,
                 NewOrder: newOrder,
                 shopName: shopLocation
-            }).then(res => {
-                console.log("then");
-                // window.location.reload();
-                $('#noteMode').load("Componets/notifAlert.php", {
-                    name: name,
-                    Orderday: orderday,
-                    NewOrder: newOrder,
-                    shopName: shopLocation
-
-                })
-
 
             }).then(res => {
                 console.log("then2");
                 $('#notifynum').load("Componets/notifAlertpin.php")
             })
-
-
         }
 
         if (loggedShop == "Central") {

@@ -52,7 +52,7 @@
                                 <td><?php echo $row['OrderNumber']; ?></td>
                                 <td><?php echo $row['Quantity']; ?></td>
                                 <td><?php echo $row['Total']; ?> ETB</td>
-                                <td>pending</td>
+                                <td>Completed</td>
                                 <td>
                                     <a href="CartCompleted.php?UD=<?php echo $urlStr; ?>&model=<?php echo $model; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">

@@ -3,13 +3,13 @@
 require './config/db.php';
 
 
-function getshopNotification()
+function getshopNotification($loggedShop)
 {
     global $connection;
     $Inout = array();
-    $loggedShop = "Historical";
 
-    $query = "SELECT * FROM notificatione WHERE ShopLocation = '$loggedShop'";
+
+    $query = "SELECT * FROM notificatione WHERE ShopLocation = '$loggedShop' ORDER BY ID DESC LIMIT 6";
     $res = mysqli_query($connection, $query);
     while ($res2 = mysqli_fetch_assoc($res)) {
         $Inout[] = $res2;
@@ -25,7 +25,7 @@ function getshopNotificationAll()
     $Inout = array();
     $loggedShop = "Historical";
 
-    $query = "SELECT * FROM notificatione ";
+    $query = "SELECT * FROM notificatione ORDER BY ID DESC LIMIT 6";
     $res = mysqli_query($connection, $query);
     while ($res2 = mysqli_fetch_assoc($res)) {
         $Inout[] = $res2;
@@ -87,10 +87,10 @@ function getshopNotificationAll()
                 <h6 class="dropdown-header">Alerts Center</h6>
 
                 <?php if ($_SESSION['shopname'] == "Central") {
-                    $respo = getshopNotification();
+                    $respo = getshopNotificationAll();
                     foreach ($respo as $row) {
                 ?> <div id="noteMode"> </div>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center" href=<?php echo  $row["UrlOrder"]; ?>>
                             <div class="mr-3">
                                 <div class="icon-circle bg-primary">
                                     <i class="fas fa-file-alt text-white"></i>
@@ -113,7 +113,7 @@ function getshopNotificationAll()
 
                     <?php } ?>
                     <?php } else {
-                    $respo = getshopNotification();
+                    $respo = getshopNotification($_SESSION['shopname']);
                     foreach ($respo as $row) {
                     ?>
 
